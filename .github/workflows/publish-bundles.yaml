@@ -22,11 +22,11 @@ jobs:
           python-version: '3.10'
       - name: install requirements
         run: pip install -r requirements.txt
-      - name: Set python path
-        run: export PYTHONPATH=$(pwd)
       - name: render bundle.yaml
         run: |
           python src/render_bundle.py --output_file bundle.yaml --bundle_variant=${{ inputs.bundle_variant }}
+        env:
+          PYTHONPATH: $(pwd)
       - name: Upload bundle
         uses: canonical/charming-actions/upload-bundle@2.2.5
         with:
