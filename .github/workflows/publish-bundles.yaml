@@ -1,13 +1,17 @@
-name: publish-charm
+name: publish-bundle
 
 on:
   workflow_call:
     secrets:
       CHARMCRAFT_AUTH:
         required: true
+    inputs:
+      bundle_variant:
+        required: true
+        type: string
 
 jobs:
-  publish-sdcore-up-bundle:
+  publish-bundle:
     runs-on: ubuntu-22.04
     steps:
       - name: checkout code
@@ -15,14 +19,14 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: 'pypy3.9'
+          python-version: 'pypy3.10'
       - name: install requirements
         run: pip install -r requirements.txt
-      - name: set python path
+      - name: Set python path
         run: export PYTHONPATH=$(pwd)
       - name: render bundle.yaml
         run: |
-          python src/render_bundle.py --output_file bundle.yaml --bundle_variant=SDCORE_UP
+          python src/render_bundle.py --output_file bundle.yaml --bundle_variant=${{ inputs.bundle_variant }}
       - name: Upload bundle
         uses: canonical/charming-actions/upload-bundle@2.2.5
         with:
