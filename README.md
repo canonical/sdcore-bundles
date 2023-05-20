@@ -2,9 +2,9 @@
 
 This project contains charm bundles for the SD-CORE.
 
-### Usage
+### Bundle generation
 
-Render the bundle:
+To render one of the SDCORE bundles:
 
 ```bash
 export PYTHONPATH=$(pwd)
