@@ -1,0 +1,21 @@
+bundle: kubernetes
+name: SDCORE-UP
+description: The SDCORE User Plane bundle contains the 5G User Plane Function.
+applications:
+  upf:
+    charm: sdcore-upf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: True
+    resources:
+      bessd-image: omecproject/upf-epc-bess:master-5786085
+      routectl-image: omecproject/upf-epc-bess:master-5786085
+      web-image: omecproject/upf-epc-bess:master-5786085
+      pfcp-agent-image: omecproject/upf-epc-pfcpiface:master-5786085
+  grafana-agent-k8s:
+    charm: grafana-agent-k8s
+    channel: latest/stable
+    scale: 1
+    trust: False
+relations:
+  - - upf:metrics-endpoint
+    - grafana-agent-k8s:metrics-endpoint

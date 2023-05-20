@@ -1,0 +1,17 @@
+bundle: kubernetes
+name: SDCORE-UP
+description: The SDCORE User Plane bundle contains the 5G User Plane Function.
+applications:
+  upf:
+    charm: sdcore-upf
+    channel: edge
+    scale: 1
+    trust: True
+  grafana-agent-k8s:
+    charm: grafana-agent-k8s
+    channel: latest/stable
+    scale: 1
+    trust: False
+relations:
+  - - upf:metrics-endpoint
+    - grafana-agent-k8s:metrics-endpoint

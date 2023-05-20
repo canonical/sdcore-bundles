@@ -1,0 +1,21 @@
+bundle: kubernetes
+name: My wonderful bundle name
+description: My wonderful bundle description
+applications:
+  app-1-name:
+    charm: app-1-charm
+    scale: 1
+    trust: False
+  app-2-name:
+    charm: app-2-charm
+    scale: 1
+    trust: False
+  app-3-name:
+    charm: app-3-charm
+    scale: 1
+    trust: False
+relations:
+  - - app-1-name:banana
+    - app-2-name:fruit
+  - - app-2-name:pizza
+    - app-3-name:cheese

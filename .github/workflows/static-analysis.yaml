@@ -11,4 +11,4 @@ jobs:
       - name: Install tox
         run: pip install tox
       - name: Run tests using tox
-        run: cd render_bundle && tox -e static
+        run: tox -e static

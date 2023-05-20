@@ -16,13 +16,11 @@ jobs:
   unit-tests-with-coverage:
     uses: ./.github/workflows/unit-test.yaml
 
-  publish-sdcore-user-plane-bundle:
-    name: Publish sdcore-user-plane charm bundle
+  publish-charm:
+    name: Publish Charm
     needs:
       [lint-report, static-analysis, unit-tests-with-coverage]
-    if: ${{ github.ref_name == 'main' }}
-    uses: ./.github/workflows/publish-bundle.yaml
-    with:
-      bundle_variant: SDCORE_USER_PLANE
+#    if: ${{ github.ref_name == 'main' }}
+    uses: ./.github/workflows/publish-bundles.yaml
     secrets:
       CHARMCRAFT_AUTH: ${{ secrets.CHARMCRAFT_AUTH }}
