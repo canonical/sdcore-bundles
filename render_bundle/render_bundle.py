@@ -54,7 +54,7 @@ def _parse_args() -> tuple[bool, str, str]:
 def render_bundle(local: bool, bundle_variant: str, output_file: str):
     """Generates bundle."""
     bundle_variant_type = SDCoreBundleVariant[bundle_variant]
-    bundle = bundle_variant_type.value(local=local)
+    bundle = bundle_variant_type.value(local=local, channel="edge")
     bundle.render(output_file=output_file)
 
 
