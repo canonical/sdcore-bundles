@@ -9,7 +9,7 @@ applications:
     channel: {{ application.channel }}
     {%- endif %}
     scale: {{ application.scale }}
-    trust: {{ application.trust }}
+    trust: {{ application.trust | lower }}
     {%- if application.resources %}
     resources:
       {%- for resource in application.resources %}

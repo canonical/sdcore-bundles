@@ -3,12 +3,11 @@
 
 """Generates any charm bundle from user provided Application and Relation objects."""
 
+from pathlib import Path
 from typing import Optional
 
 from jinja2 import Template
 from pydantic import BaseModel
-import os
-import sys
 
 
 def write_to_file(file: str, content: str):
@@ -72,8 +71,9 @@ class CharmBundle:
         Args:
             output_file: Output file
         """
-        with open(os.path.join(sys.path[0], "lib/bundle.yaml.j2")) as file:
-            template = Template(file.read())
+        p = Path(__file__).with_name("bundle.yaml.j2")
+        with p.open("r") as f:
+            template = Template(f.read())
         content = template.render(
             bundle=self.bundle,
             name=self.name,
