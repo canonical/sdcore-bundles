@@ -20,7 +20,7 @@ jobs:
     name: Publish SDCORE-UP charm bundle
     needs:
       [lint-report, static-analysis, unit-tests-with-coverage]
-#    if: ${{ github.ref_name == 'main' }}
+    if: ${{ github.ref_name == 'main' }}
     uses: ./.github/workflows/publish-bundle.yaml
     with:
       bundle_variant: SDCORE_UP
