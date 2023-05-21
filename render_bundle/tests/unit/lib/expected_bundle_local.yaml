@@ -5,16 +5,18 @@ applications:
   app-1-name:
     charm: app-1-charm.charm
     scale: 1
-    trust: true
+    trust: false
     resources:
       container-image-1: whatever-image-1:1234
       container-image-2: whatever-image-2:5678
   app-2-name:
     charm: app-2-charm.charm
     scale: 1
+    trust: false
   app-3-name:
     charm: app-3-charm.charm
     scale: 1
+    trust: false
     resources:
       container-image-3: whatever-image-3:1111
       container-image-4: whatever-image-4:2222

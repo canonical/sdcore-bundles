@@ -5,7 +5,7 @@ applications:
   upf:
     charm: sdcore-upf_ubuntu-22.04-amd64.charm
     scale: 1
-    trust: True
+    trust: true
     resources:
       bessd-image: omecproject/upf-epc-bess:master-5786085
       routectl-image: omecproject/upf-epc-bess:master-5786085
@@ -15,7 +15,7 @@ applications:
     charm: grafana-agent-k8s
     channel: latest/stable
     scale: 1
-    trust: False
+    trust: false
 relations:
   - - upf:metrics-endpoint
     - grafana-agent-k8s:metrics-endpoint

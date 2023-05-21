@@ -6,12 +6,12 @@ applications:
     charm: sdcore-upf
     channel: edge
     scale: 1
-    trust: True
+    trust: true
   grafana-agent-k8s:
     charm: grafana-agent-k8s
     channel: latest/stable
     scale: 1
-    trust: False
+    trust: false
 relations:
   - - upf:metrics-endpoint
     - grafana-agent-k8s:metrics-endpoint
