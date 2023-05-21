@@ -10,6 +10,8 @@ class UPF(Application):
     """UPF Application."""
 
     def __init__(self, local: bool, channel: str):
+        local_charm = "sdcore-upf_ubuntu-22.04-amd64.charm"
+        charmhub_charm = "sdcore-upf"
         resources = [
             Resource(
                 name="bessd-image",
@@ -30,9 +32,9 @@ class UPF(Application):
         ]
         super().__init__(
             name="upf",
-            charm="sdcore-upf_ubuntu-22.04-amd64.charm" if local else "sdcore-upf",
+            charm=local_charm if local else charmhub_charm,
             trust=True,
-            channel=None if local else channel,
+            channel=channel if not local else None,
             resources=resources if local else None,
         )
 

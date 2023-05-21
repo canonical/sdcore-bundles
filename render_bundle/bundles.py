@@ -7,15 +7,15 @@ from applications import UPF, GrafanaAgent
 from lib.charm_bundle_generator import CharmBundle, Relation
 
 
-class SDCoreUserPlane(CharmBundle):
-    """SD-Core User Plane Bundle."""
+class SDCoreUP(CharmBundle):
+    """SDCORE User Plane Bundle."""
 
-    def __init__(self, local: bool, channel: str):
-        upf = UPF(local=local, channel=channel)
+    def __init__(self, local: bool):
+        upf = UPF(local=local, channel="edge")
         grafana_agent = GrafanaAgent()
         super().__init__(
-            description="The SD-Core User Plane bundle contains the 5G User Plane Function (UPF).",
-            name="sdcore-user-plane",
+            description="The SDCORE User Plane bundle contains the 5G User Plane Function.",
+            name="SDCORE-UP",
             applications=[
                 upf,
                 grafana_agent,
