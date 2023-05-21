@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # Copyright 2023 Canonical Ltd.
 # See LICENSE file for licensing details.
 
@@ -8,6 +7,8 @@ from typing import Optional
 
 from jinja2 import Template
 from pydantic import BaseModel
+import os
+import sys
 
 
 def write_to_file(file: str, content: str):
@@ -71,7 +72,7 @@ class CharmBundle:
         Args:
             output_file: Output file
         """
-        with open("lib/bundle.yaml.j2") as file:
+        with open(os.path.join(sys.path[0], "lib/bundle.yaml.j2")) as file:
             template = Template(file.read())
         content = template.render(
             bundle=self.bundle,
