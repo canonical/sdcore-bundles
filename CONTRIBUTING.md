@@ -22,5 +22,4 @@ tox -e fmt           # Format code
 tox -e lint          # Code style
 tox -e static        # Static analysis
 tox -e unit          # Unit tests
-tox -e integration   # Integration tests
 ```
