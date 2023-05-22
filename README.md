@@ -4,7 +4,7 @@ This project contains charm bundles for the SD-CORE.
 
 ### Bundle generation
 
-To render the `SDCORE_UP` bundle and output it in the `bundle` directory:
+To render a bundle and output it in the bundle directory (e.g., `SDCORE_UP`):
 
 ```bash
 pip3 install -r render_bundle/requirements.txt
