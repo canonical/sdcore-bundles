@@ -7,17 +7,18 @@
 
 import argparse
 import enum
+from typing import Optional
 
-from bundles import SDCoreUP
+from bundles import SDCoreUserPlane
 
 
 class SDCoreBundleVariant(enum.Enum):
     """Possible bundles to generate."""
 
-    SDCORE_UP = SDCoreUP
+    SDCORE_USER_PLANE = SDCoreUserPlane
 
 
-def _parse_args() -> tuple[bool, str, str]:
+def _parse_args() -> tuple[bool, str, str, str]:
     """Parses user provided arguments.
 
     Returns:
@@ -38,7 +39,15 @@ def _parse_args() -> tuple[bool, str, str]:
         type=str,
         help="SDCORE bundle type.",
         required=True,
-        choices=["SDCORE_UP"],
+        choices=["SDCORE_USER_PLANE"],
+    )
+    parser.add_argument(
+        "--channel",
+        type=str,
+        help="Output file",
+        choices=["edge", "beta", "candidate", "stable"],
+        required=False,
+        default="edge",
     )
     parser.add_argument(
         "--output_file",
@@ -48,20 +57,42 @@ def _parse_args() -> tuple[bool, str, str]:
         default="bundle.yaml",
     )
     bundle_args, _ = parser.parse_known_args()
-    return bundle_args.local, bundle_args.bundle_variant, bundle_args.output_file
+    return (
+        bundle_args.local,
+        bundle_args.bundle_variant,
+        bundle_args.channel,
+        bundle_args.output_file,
+    )
 
 
-def render_bundle(local: bool, bundle_variant: str, output_file: str):
-    """Generates bundle."""
+def render_bundle(
+    local: bool,
+    bundle_variant: str,
+    output_file: str,
+    channel: Optional[str] = None,
+):
+    """Generates a SDCORE bundle variant.
+
+    Args:
+        local: Whether to use local charms (instead of charmhub).
+        bundle_variant: Bundle variant (ex. SDCORE_USER_PLANE)
+        channel: Charmhub channel
+        output_file: Output file path and directory (ex. `my/path/bundle.yaml`)
+    """
     bundle_variant_type = SDCoreBundleVariant[bundle_variant]
-    bundle = bundle_variant_type.value(local=local, channel="edge")
+    bundle = bundle_variant_type.value(local=local, channel=channel)
     bundle.render(output_file=output_file)
 
 
 def main():
     """Generates one of the SDCORE charm bundles based on user provided bundle type."""
-    local, bundle_variant, output_file = _parse_args()
-    render_bundle(local=local, bundle_variant=bundle_variant, output_file=output_file)
+    local, bundle_variant, channel, output_file = _parse_args()
+    render_bundle(
+        local=local,
+        bundle_variant=bundle_variant,
+        channel=channel,
+        output_file=output_file,
+    )
 
 
 if __name__ == "__main__":
