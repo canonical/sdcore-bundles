@@ -1,6 +1,6 @@
 bundle: kubernetes
 name: sdcore-user-plane
-description: The SDCORE User Plane bundle contains the 5G User Plane Function (UPF).
+description: The SD-Core User Plane bundle contains the 5G User Plane Function (UPF).
 applications:
   upf:
     charm: sdcore-upf_ubuntu-22.04-amd64.charm
