@@ -8,7 +8,9 @@ on:
     inputs:
       bundle_variant:
         required: true
-        type: string
+        type: choice
+        options:
+        - SDCORE_USER_PLANE
 
 jobs:
   publish-bundle:
