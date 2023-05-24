@@ -1,6 +1,6 @@
 # sdcore-bundles
 
-This project contains charm bundles for the SD-CORE.
+This project contains charm bundles for the SD-Core.
 
 ### Bundle generation
 
