@@ -3,7 +3,7 @@
 # See LICENSE file for licensing details.
 
 
-"""Python script to generate one of the potential SD-CORE bundle variant."""
+"""Python script to generate one of the potential SD-Core bundle variants."""
 
 import argparse
 import enum
