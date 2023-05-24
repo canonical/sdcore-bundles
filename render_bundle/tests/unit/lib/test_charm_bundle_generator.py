@@ -16,7 +16,6 @@ def file_content(file: str) -> str:
 
 class TestRenderBundle(unittest.TestCase):
     def test_given_charmhub_charm_when_render_bundle_then_bundle_is_rendered(self):
-        rendered_bundle_path = f"{TEST_PATH}/rendered_bundle_charmhub.yaml"
         expected_bundle_path = f"{TEST_PATH}/expected_bundle_charmhub.yaml"
 
         bundle_description = "My wonderful bundle description"
@@ -49,12 +48,11 @@ class TestRenderBundle(unittest.TestCase):
                 relation_2,
             ],
         )
-        bundle.render(output_file=rendered_bundle_path)
+        rendered_bundle = bundle.render()
 
-        self.assertEqual(file_content(rendered_bundle_path), file_content(expected_bundle_path))
+        self.assertEqual(rendered_bundle, file_content(expected_bundle_path))
 
     def test_given_local_charm_when_render_bundle_then_bundle_is_rendered(self):
-        rendered_bundle_path = f"{TEST_PATH}/rendered_bundle_local.yaml"
         expected_bundle_path = f"{TEST_PATH}/expected_bundle_local.yaml"
 
         bundle_description = "My wonderful bundle description"
@@ -101,6 +99,6 @@ class TestRenderBundle(unittest.TestCase):
                 relation_2,
             ],
         )
-        bundle.render(output_file=rendered_bundle_path)
+        rendered_bundle = bundle.render()
 
-        self.assertEqual(file_content(rendered_bundle_path), file_content(expected_bundle_path))
+        self.assertEqual(rendered_bundle, file_content(expected_bundle_path))

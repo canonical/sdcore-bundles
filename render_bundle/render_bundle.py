@@ -82,7 +82,7 @@ def render_bundle(
     """
     bundle_variant_type = SDCoreBundleVariant[bundle_variant]
     bundle = bundle_variant_type.value(local=local, channel=channel)
-    bundle.render(output_file=output_file)
+    bundle.render_to_file(output_file=output_file)
 
 
 def main():

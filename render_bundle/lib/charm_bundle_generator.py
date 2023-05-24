@@ -10,7 +10,7 @@ from jinja2 import Template
 from pydantic import BaseModel
 
 
-def write_to_file(file: str, content: str):
+def _write_to_file(file: str, content: str):
     """Writes content to a file.
 
     Args:
@@ -65,20 +65,28 @@ class CharmBundle:
         self.applications = applications
         self.relations = relations
 
-    def render(self, output_file: str):
+    def render(self) -> str:
         """Renders charm bundle using jinja2 templating.
 
-        Args:
-            output_file: Output file
+        Returns:
+            str: Rendered bundle
         """
         p = Path(__file__).with_name("bundle.yaml.j2")
         with p.open("r") as f:
             template = Template(f.read())
-        content = template.render(
+        return template.render(
             bundle=self.bundle,
             name=self.name,
             description=self.description,
             applications=self.applications,
             relations=self.relations,
         )
-        write_to_file(content=content, file=output_file)
+
+    def render_to_file(self, output_file: str):
+        """Renders charm bundle using jinja2 templating and outputs to a file.
+
+        Args:
+            output_file: Output file.
+        """
+        content = self.render()
+        _write_to_file(content=content, file=output_file)
