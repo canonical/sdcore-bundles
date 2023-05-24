@@ -23,7 +23,7 @@ def _parse_args() -> tuple[bool, str, str, str]:
 
     Returns:
         local (str): Whether to generate a bundle for local charms (instead of charmhub)
-        bundle_variant (str): SD-CORE bundle to generate
+        bundle_variant (str): SD-Core bundle to generate
         output_file (str): Directory and file name where bundle will be generated.
     """
     parser = argparse.ArgumentParser(description="Render jinja2 bundle template from cli args.")
