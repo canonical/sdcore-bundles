@@ -8,7 +8,7 @@ from lib.charm_bundle_generator import CharmBundle, Relation
 
 
 class SDCoreUserPlane(CharmBundle):
-    """SDCORE User Plane Bundle."""
+    """SD-Core User Plane Bundle."""
 
     def __init__(self, local: bool, channel: str):
         upf = UPF(local=local, channel=channel)
