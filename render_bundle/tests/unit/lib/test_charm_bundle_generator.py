@@ -21,7 +21,7 @@ class TestRenderBundle(unittest.TestCase):
         bundle_description = "My wonderful bundle description"
         bundle_name = "My wonderful bundle name"
         app_1 = Application(name="app-1-name", charm="app-1-charm")
-        app_2 = Application(name="app-2-name", charm="app-2-charm")
+        app_2 = Application(name="app-2-name", charm="app-2-charm", trust=True)
         app_3 = Application(name="app-3-name", charm="app-3-charm")
         relation_1 = Relation(
             app_1_name=app_1.name,
@@ -64,6 +64,7 @@ class TestRenderBundle(unittest.TestCase):
                 Resource(name="container-image-1", value="whatever-image-1:1234"),
                 Resource(name="container-image-2", value="whatever-image-2:5678"),
             ],
+            trust=True,
         )
         app_2 = Application(name="app-2-name", charm="app-2-charm.charm")
         app_3 = Application(
