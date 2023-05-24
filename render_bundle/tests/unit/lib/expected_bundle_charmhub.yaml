@@ -5,15 +5,13 @@ applications:
   app-1-name:
     charm: app-1-charm
     scale: 1
-    trust: false
   app-2-name:
     charm: app-2-charm
     scale: 1
-    trust: false
+    trust: true
   app-3-name:
     charm: app-3-charm
     scale: 1
-    trust: false
 relations:
   - - app-1-name:banana
     - app-2-name:fruit
