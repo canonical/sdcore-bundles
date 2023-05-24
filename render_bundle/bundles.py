@@ -14,7 +14,7 @@ class SDCoreUserPlane(CharmBundle):
         upf = UPF(local=local, channel=channel)
         grafana_agent = GrafanaAgent()
         super().__init__(
-            description="The SDCORE User Plane bundle contains the 5G User Plane Function (UPF).",
+            description="The SD-Core User Plane bundle contains the 5G User Plane Function (UPF).",
             name="sdcore-user-plane",
             applications=[
                 upf,
