@@ -1,1 +1,1 @@
-# SD-CORE Bundle
+# SD-Core Bundle
