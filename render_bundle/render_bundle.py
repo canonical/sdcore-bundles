@@ -71,7 +71,7 @@ def render_bundle(
     output_file: str,
     channel: Optional[str] = None,
 ):
-    """Generates a SDCORE bundle variant.
+    """Generates a SD-Core bundle variant.
 
     Args:
         local: Whether to use local charms (instead of charmhub).
