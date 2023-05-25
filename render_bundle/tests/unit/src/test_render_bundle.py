@@ -27,14 +27,13 @@ class TestRenderBundle(unittest.TestCase):
 
         self.assertEqual(file_content(rendered_bundle_path), file_content(expected_bundle_path))
 
+    def test_given_sdcore_user_plane_local_when_render_bundle_then_bundle_is_rendered(self):
+        rendered_bundle_path = f"{TEST_PATH}/rendered_bundle_sdcore_user_plane_local.yaml"
+        expected_bundle_path = f"{TEST_PATH}/expected_bundle_sdcore_user_plane_local.yaml"
+        render_bundle(
+            local=True,
+            bundle_variant="SDCORE_USER_PLANE",
+            output_file=rendered_bundle_path,
+        )
 
-#     def test_given_sdcore_user_plane_local_when_render_bundle_then_bundle_is_rendered(self):
-#         rendered_bundle_path = f"{TEST_PATH}/rendered_bundle_sdcore_user_plane_local.yaml"
-#         expected_bundle_path = f"{TEST_PATH}/expected_bundle_sdcore_user_plane_local.yaml"
-#         render_bundle(
-#             local=True,
-#             bundle_variant="SDCORE_USER_PLANE",
-#             output_file=rendered_bundle_path,
-#         )
-#
-#         self.assertEqual(file_content(rendered_bundle_path), file_content(expected_bundle_path))
+        self.assertEqual(file_content(rendered_bundle_path), file_content(expected_bundle_path))
