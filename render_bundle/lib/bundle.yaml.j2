@@ -1,0 +1,29 @@
+bundle: {{ bundle }}
+name: {{ name }}
+description: {{ description }}
+applications:
+  {%- for application in applications %}
+  {{ application.name }}:
+    charm: {{ application.charm }}
+    {%- if application.channel %}
+    channel: {{ application.channel }}
+    {%- endif %}
+    scale: {{ application.scale }}
+    {%- if application.trust %}
+    trust: true
+    {%- endif %}
+    {%- if application.resources %}
+    resources:
+      {%- for resource in application.resources %}
+      {{ resource.name }}: {{ resource.value }}
+      {%- endfor %}
+    {%- endif %}
+  {%- endfor %}
+{%- if relations %}
+relations:
+  {%- for relation in relations %}
+  - - {{ relation.app_1_name }}:{{ relation.app_1_relation_name }}
+    - {{ relation.app_2_name }}:{{ relation.app_2_relation_name }}
+  {%- endfor %}
+{%- endif %}
+
