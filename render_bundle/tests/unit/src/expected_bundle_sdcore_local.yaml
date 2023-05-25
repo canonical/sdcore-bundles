@@ -1,0 +1,111 @@
+bundle: kubernetes
+name: sdcore
+description: The SD-Core bundle contains applications for running a standalone 5G Core network.
+applications:
+  amf:
+    charm: sdcore-amf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      amf-image: omecproject/5gc-amf:master-a4759db
+  ausf:
+    charm: sdcore-ausf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      ausf-image: omecproject/5gc-ausf:master-c84dff4
+  nrf:
+    charm: sdcore-nrf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      nrf-image: omecproject/5gc-nrf:master-b747b98
+  nssf:
+    charm: sdcore-nssf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      nssf-image: omecproject/5gc-nssf:master-4e5aef3
+  pcf:
+    charm: sdcore-pcf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      pcf-image: omecproject/5gc-pcf:master-bcbdeb0
+  smf:
+    charm: sdcore-smf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      smf-image: omecproject/5gc-smf:master-13e5671
+  udm:
+    charm: sdcore-udm_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      udm-image: omecproject/5gc-udm:master-6956659
+  udr:
+    charm: sdcore-udr_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      udr-image: omecproject/5gc-udr:master-35eb7b7
+  upf:
+    charm: sdcore-upf_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      bessd-image: omecproject/upf-epc-bess:master-5786085
+      routectl-image: omecproject/upf-epc-bess:master-5786085
+      web-image: omecproject/upf-epc-bess:master-5786085
+      pfcp-agent-image: omecproject/upf-epc-pfcpiface:master-5786085
+  webui:
+    charm: sdcore-webui_ubuntu-22.04-amd64.charm
+    scale: 1
+    trust: true
+    resources:
+      webui-image: omecproject/5gc-webui:master-1121545
+  mongodb-k8s:
+    charm: mongodb-k8s
+    channel: 5/edge
+    scale: 1
+    trust: true
+  grafana-agent-k8s:
+    charm: grafana-agent-k8s
+    channel: latest/stable
+    scale: 1
+relations:
+  - - amf:fiveg_nrf
+    - nrf:fiveg-nrf
+  - - amf:default-database
+    - mongodb-k8s:database
+  - - amf:amf-database
+    - mongodb-k8s:database
+  - - amf:metrics-endpoint
+    - grafana-agent-k8s:metrics-endpoint
+  - - ausf:fiveg_nrf
+    - nrf:fiveg-nrf
+  - - nrf:database
+    - mongodb-k8s:database
+  - - nssf:fiveg_nrf
+    - nrf:fiveg-nrf
+  - - pcf:fiveg_nrf
+    - nrf:fiveg-nrf
+  - - pcf:database
+    - mongodb-k8s:database
+  - - smf:fiveg_nrf
+    - nrf:fiveg-nrf
+  - - smf:default-database
+    - mongodb-k8s:database
+  - - smf:smf-database
+    - mongodb-k8s:database
+  - - udm:fiveg_nrf
+    - nrf:fiveg-nrf
+  - - udr:fiveg_nrf
+    - nrf:fiveg-nrf
+  - - udr:database
+    - mongodb-k8s:database
+  - - webui:database
+    - mongodb-k8s:database
+  - - upf:metrics-endpoint
+    - grafana-agent-k8s:metrics-endpoint

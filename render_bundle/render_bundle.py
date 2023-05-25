@@ -9,12 +9,14 @@ import argparse
 import enum
 from typing import Optional
 
-from bundles import SDCoreUserPlane
+from bundles import SDCore, SDCoreControlPlane, SDCoreUserPlane
 
 
 class SDCoreBundleVariant(enum.Enum):
     """Possible bundles to generate."""
 
+    SDCORE = SDCore
+    SDCORE_CONTROL_PLANE = SDCoreControlPlane
     SDCORE_USER_PLANE = SDCoreUserPlane
 
 
@@ -40,7 +42,7 @@ def _parse_args() -> tuple[bool, str, str, str]:
         type=str,
         help="SDCORE bundle type.",
         required=True,
-        choices=["SDCORE_USER_PLANE"],
+        choices=["SDCORE", "SDCORE_CONTROL_PLANE", "SDCORE_USER_PLANE"],
     )
     parser.add_argument(
         "--channel",
