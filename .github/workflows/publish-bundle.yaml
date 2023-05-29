@@ -25,7 +25,7 @@ jobs:
       - name: render bundle.yaml
         run: python3 render_bundle/render_bundle.py --output_file bundle/bundle.yaml --bundle_variant=${{ inputs.bundle_variant }}
       - name: Upload bundle
-        uses: canonical/charming-actions/upload-bundle@2.2.5
+        uses: canonical/charming-actions/upload-bundle@2.3.0
         with:
           credentials: "${{ secrets.CHARMCRAFT_AUTH }}"
           bundle-path: "bundle"
