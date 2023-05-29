@@ -1,6 +1,9 @@
 # sdcore-bundles
 
-This project contains charm bundles for the SD-Core.
+This project contains charm bundles for the SD-Core. Bundles are available on Charmhub:
+- [sdcore](https://charmhub.io/sdcore)
+- [sdcore-control-plane](https://charmhub.io/sdcore-user-plane)
+- [sdcore-user-plane](https://charmhub.io/sdcore-control-plane)
 
 ### Bundle generation
 

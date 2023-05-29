@@ -56,7 +56,7 @@ class CharmBundle:
         name: str,
         description: str,
         applications: list[Application],
-        relations: Optional[list[Relation]],
+        relations: Optional[list[Relation]] = None,
         bundle: str = "kubernetes",
     ):
         self.name = name
