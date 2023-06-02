@@ -115,6 +115,12 @@ class SDCore(CharmBundle):
                     app_2_relation_name="database",
                 ),
                 Relation(
+                    app_1_name=smf.name,
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="metrics-endpoint",
+                    app_2_relation_name="metrics-endpoint",
+                ),
+                Relation(
                     app_1_name=udm.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
@@ -233,6 +239,12 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
                     app_2_relation_name="fiveg-nrf",
+                ),
+                Relation(
+                    app_1_name=smf.name,
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="metrics-endpoint",
+                    app_2_relation_name="metrics-endpoint",
                 ),
                 Relation(
                     app_1_name=smf.name,
