@@ -68,9 +68,7 @@ applications:
 relations:
   - - amf:fiveg_nrf
     - nrf:fiveg-nrf
-  - - amf:default-database
-    - mongodb-k8s:database
-  - - amf:amf-database
+  - - amf:database
     - mongodb-k8s:database
   - - amf:metrics-endpoint
     - grafana-agent-k8s:metrics-endpoint
@@ -86,9 +84,9 @@ relations:
     - mongodb-k8s:database
   - - smf:fiveg_nrf
     - nrf:fiveg-nrf
-  - - smf:default-database
-    - mongodb-k8s:database
-  - - smf:smf-database
+  - - smf:metrics-endpoint
+    - grafana-agent-k8s:metrics-endpoint
+  - - smf:database
     - mongodb-k8s:database
   - - udm:fiveg_nrf
     - nrf:fiveg-nrf

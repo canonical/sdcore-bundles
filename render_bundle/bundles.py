@@ -63,13 +63,7 @@ class SDCore(CharmBundle):
                 Relation(
                     app_1_name=amf.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="default-database",
-                    app_2_relation_name="database",
-                ),
-                Relation(
-                    app_1_name=amf.name,
-                    app_2_name=mongodb.name,
-                    app_1_relation_name="amf-database",
+                    app_1_relation_name="database",
                     app_2_relation_name="database",
                 ),
                 Relation(
@@ -117,14 +111,14 @@ class SDCore(CharmBundle):
                 Relation(
                     app_1_name=smf.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="default-database",
+                    app_1_relation_name="database",
                     app_2_relation_name="database",
                 ),
                 Relation(
                     app_1_name=smf.name,
-                    app_2_name=mongodb.name,
-                    app_1_relation_name="smf-database",
-                    app_2_relation_name="database",
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="metrics-endpoint",
+                    app_2_relation_name="metrics-endpoint",
                 ),
                 Relation(
                     app_1_name=udm.name,
@@ -201,13 +195,7 @@ class SDCoreControlPlane(CharmBundle):
                 Relation(
                     app_1_name=amf.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="default-database",
-                    app_2_relation_name="database",
-                ),
-                Relation(
-                    app_1_name=amf.name,
-                    app_2_name=mongodb.name,
-                    app_1_relation_name="amf-database",
+                    app_1_relation_name="database",
                     app_2_relation_name="database",
                 ),
                 Relation(
@@ -254,14 +242,14 @@ class SDCoreControlPlane(CharmBundle):
                 ),
                 Relation(
                     app_1_name=smf.name,
-                    app_2_name=mongodb.name,
-                    app_1_relation_name="default-database",
-                    app_2_relation_name="database",
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="metrics-endpoint",
+                    app_2_relation_name="metrics-endpoint",
                 ),
                 Relation(
                     app_1_name=smf.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="smf-database",
+                    app_1_relation_name="database",
                     app_2_relation_name="database",
                 ),
                 Relation(
