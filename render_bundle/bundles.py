@@ -15,6 +15,7 @@ from applications import (
     UPF,
     GrafanaAgent,
     MongoDB,
+    SelfSignedCertificates,
     Webui,
 )
 from lib.charm_bundle_generator import CharmBundle, Relation
@@ -36,6 +37,7 @@ class SDCore(CharmBundle):
         webui = Webui(local=local, channel=channel)
         mongodb = MongoDB()
         grafana_agent = GrafanaAgent()
+        self_signed_certificates = SelfSignedCertificates()
         super().__init__(
             description="The SD-Core bundle contains applications for running a standalone 5G Core network.",  # noqa: E501
             name="sdcore",
@@ -52,6 +54,7 @@ class SDCore(CharmBundle):
                 webui,
                 mongodb,
                 grafana_agent,
+                self_signed_certificates,
             ],
             relations=[
                 Relation(
@@ -73,10 +76,22 @@ class SDCore(CharmBundle):
                     app_2_relation_name="metrics-endpoint",
                 ),
                 Relation(
+                    app_1_name=amf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
+                ),
+                Relation(
                     app_1_name=ausf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
                     app_2_relation_name="fiveg-nrf",
+                ),
+                Relation(
+                    app_1_name=ausf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=nrf.name,
@@ -85,10 +100,22 @@ class SDCore(CharmBundle):
                     app_2_relation_name="database",
                 ),
                 Relation(
+                    app_1_name=nrf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
+                ),
+                Relation(
                     app_1_name=nssf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
                     app_2_relation_name="fiveg-nrf",
+                ),
+                Relation(
+                    app_1_name=nssf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=pcf.name,
@@ -101,6 +128,12 @@ class SDCore(CharmBundle):
                     app_2_name=mongodb.name,
                     app_1_relation_name="database",
                     app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=pcf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=smf.name,
@@ -121,10 +154,22 @@ class SDCore(CharmBundle):
                     app_2_relation_name="metrics-endpoint",
                 ),
                 Relation(
+                    app_1_name=smf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
+                ),
+                Relation(
                     app_1_name=udm.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
                     app_2_relation_name="fiveg-nrf",
+                ),
+                Relation(
+                    app_1_name=udm.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=udr.name,
@@ -137,6 +182,12 @@ class SDCore(CharmBundle):
                     app_2_name=mongodb.name,
                     app_1_relation_name="database",
                     app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=udr.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=webui.name,
@@ -169,6 +220,7 @@ class SDCoreControlPlane(CharmBundle):
         webui = Webui(local=local, channel=channel)
         mongodb = MongoDB()
         grafana_agent = GrafanaAgent()
+        self_signed_certificates = SelfSignedCertificates()
         super().__init__(
             description="The SD-Core Control Plane bundle contains the control plane part of the 5G core network.",  # noqa: E501
             name="sdcore-control-plane",
@@ -184,6 +236,7 @@ class SDCoreControlPlane(CharmBundle):
                 webui,
                 mongodb,
                 grafana_agent,
+                self_signed_certificates,
             ],
             relations=[
                 Relation(
@@ -205,10 +258,22 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_relation_name="metrics-endpoint",
                 ),
                 Relation(
+                    app_1_name=amf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
+                ),
+                Relation(
                     app_1_name=ausf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
                     app_2_relation_name="fiveg-nrf",
+                ),
+                Relation(
+                    app_1_name=ausf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=nrf.name,
@@ -217,10 +282,22 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_relation_name="database",
                 ),
                 Relation(
+                    app_1_name=nrf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
+                ),
+                Relation(
                     app_1_name=nssf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
                     app_2_relation_name="fiveg-nrf",
+                ),
+                Relation(
+                    app_1_name=nssf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=pcf.name,
@@ -233,6 +310,12 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_name=mongodb.name,
                     app_1_relation_name="database",
                     app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=pcf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=smf.name,
@@ -253,10 +336,22 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_relation_name="database",
                 ),
                 Relation(
+                    app_1_name=smf.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
+                ),
+                Relation(
                     app_1_name=udm.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
                     app_2_relation_name="fiveg-nrf",
+                ),
+                Relation(
+                    app_1_name=udm.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=udr.name,
@@ -269,6 +364,12 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_name=mongodb.name,
                     app_1_relation_name="database",
                     app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=udr.name,
+                    app_2_name=self_signed_certificates.name,
+                    app_1_relation_name="certificates",
+                    app_2_relation_name="certificates",
                 ),
                 Relation(
                     app_1_name=webui.name,
