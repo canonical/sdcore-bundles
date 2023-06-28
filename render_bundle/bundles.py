@@ -201,6 +201,18 @@ class SDCore(CharmBundle):
                     app_1_relation_name="metrics-endpoint",
                     app_2_relation_name="metrics-endpoint",
                 ),
+                Relation(
+                    app_1_name=mongodb.name,
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="metrics-endpoint",
+                    app_2_relation_name="metrics-endpoint",
+                ),
+                Relation(
+                    app_1_name=mongodb.name,
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="logging",
+                    app_2_relation_name="logging-provider",
+                ),
             ],
         )
 
@@ -376,6 +388,18 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_name=mongodb.name,
                     app_1_relation_name="database",
                     app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=mongodb.name,
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="metrics-endpoint",
+                    app_2_relation_name="metrics-endpoint",
+                ),
+                Relation(
+                    app_1_name=mongodb.name,
+                    app_2_name=grafana_agent.name,
+                    app_1_relation_name="logging",
+                    app_2_relation_name="logging-provider",
                 ),
             ],
         )
