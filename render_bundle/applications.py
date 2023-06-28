@@ -229,3 +229,14 @@ class GrafanaAgent(Application):
             charm="grafana-agent-k8s",
             channel="latest/stable",
         )
+
+
+class SelfSignedCertificates(Application):
+    """Self Signed Certificates Application."""
+
+    def __init__(self):
+        super().__init__(
+            name="self-signed-certificates",
+            charm="self-signed-certificates",
+            channel="edge",
+        )

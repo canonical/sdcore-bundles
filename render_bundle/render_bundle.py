@@ -88,7 +88,7 @@ def render_bundle(
 
 
 def main():
-    """Generates one of the SDCORE charm bundles based on user provided bundle type."""
+    """Generates one of the SD-Core charm bundles based on user provided bundle type."""
     local, bundle_variant, channel, output_file = _parse_args()
     render_bundle(
         local=local,
