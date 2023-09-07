@@ -60,7 +60,7 @@ class SDCore(CharmBundle):
                 Relation(
                     app_1_name=amf.name,
                     app_2_name=nrf.name,
-                    app_1_relation_name="fiveg_nrf",
+                    app_1_relation_name="fiveg-nrf",
                     app_2_relation_name="fiveg-nrf",
                 ),
                 Relation(
@@ -254,7 +254,7 @@ class SDCoreControlPlane(CharmBundle):
                 Relation(
                     app_1_name=amf.name,
                     app_2_name=nrf.name,
-                    app_1_relation_name="fiveg_nrf",
+                    app_1_relation_name="fiveg-nrf",
                     app_2_relation_name="fiveg-nrf",
                 ),
                 Relation(
