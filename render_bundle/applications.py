@@ -238,5 +238,5 @@ class SelfSignedCertificates(Application):
         super().__init__(
             name="self-signed-certificates",
             charm="self-signed-certificates",
-            channel="edge",
+            channel="beta",
         )
