@@ -13,7 +13,7 @@ class AMF(Application):
         resources = [
             Resource(
                 name="amf-image",
-                value="omecproject/5gc-amf:master-a4759db",
+                value="ghcr.io/canonical/sdcore-amf:1.3",
             )
         ]
         super().__init__(
@@ -32,7 +32,7 @@ class AUSF(Application):
         resources = [
             Resource(
                 name="ausf-image",
-                value="omecproject/5gc-ausf:master-c84dff4",
+                value="ghcr.io/canonical/sdcore-ausf:1.3",
             )
         ]
         super().__init__(
@@ -51,7 +51,7 @@ class NRF(Application):
         resources = [
             Resource(
                 name="nrf-image",
-                value="omecproject/5gc-nrf:master-b747b98",
+                value="ghcr.io/canonical/sdcore-nrf:1.3",
             )
         ]
         super().__init__(
@@ -70,7 +70,7 @@ class NSSF(Application):
         resources = [
             Resource(
                 name="nssf-image",
-                value="omecproject/5gc-nssf:master-4e5aef3",
+                value="ghcr.io/canonical/sdcore-nssf:1.3",
             )
         ]
         super().__init__(
@@ -89,7 +89,7 @@ class PCF(Application):
         resources = [
             Resource(
                 name="pcf-image",
-                value="omecproject/5gc-pcf:master-bcbdeb0",
+                value="ghcr.io/canonical/sdcore-pcf:1.3",
             )
         ]
         super().__init__(
@@ -108,7 +108,7 @@ class SMF(Application):
         resources = [
             Resource(
                 name="smf-image",
-                value="omecproject/5gc-smf:master-13e5671",
+                value="ghcr.io/canonical/sdcore-smf:1.3",
             )
         ]
         super().__init__(
@@ -127,7 +127,7 @@ class UDM(Application):
         resources = [
             Resource(
                 name="udm-image",
-                value="omecproject/5gc-udm:master-6956659",
+                value="ghcr.io/canonical/sdcore-udm:1.3",
             )
         ]
         super().__init__(
@@ -146,7 +146,7 @@ class UDR(Application):
         resources = [
             Resource(
                 name="udr-image",
-                value="omecproject/5gc-udr:master-35eb7b7",
+                value="ghcr.io/canonical/sdcore-udr:1.3",
             )
         ]
         super().__init__(
@@ -165,19 +165,11 @@ class UPF(Application):
         resources = [
             Resource(
                 name="bessd-image",
-                value="omecproject/upf-epc-bess:master-5786085",
-            ),
-            Resource(
-                name="routectl-image",
-                value="omecproject/upf-epc-bess:master-5786085",
-            ),
-            Resource(
-                name="web-image",
-                value="omecproject/upf-epc-bess:master-5786085",
+                value="ghcr.io/canonical/sdcore-upf-bess:1.3",
             ),
             Resource(
                 name="pfcp-agent-image",
-                value="omecproject/upf-epc-pfcpiface:master-5786085",
+                value="ghcr.io/canonical/sdcore-upf-pfcpiface:1.3",
             ),
         ]
         super().__init__(
@@ -196,7 +188,7 @@ class Webui(Application):
         resources = [
             Resource(
                 name="webui-image",
-                value="omecproject/5gc-webui:master-1121545",
+                value="ghcr.io/canonical/sdcore-webui:1.3",
             )
         ]
         super().__init__(
