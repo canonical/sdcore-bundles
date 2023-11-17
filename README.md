@@ -1,4 +1,7 @@
-# sdcore-bundles
+# SD-Core bundles
+[![CharmHub Badge](https://charmhub.io/sdcore/badge.svg)](https://charmhub.io/sdcore)
+[![CharmHub Badge](https://charmhub.io/sdcore-control-plane/badge.svg)](https://charmhub.io/sdcore-control-plane)
+[![CharmHub Badge](https://charmhub.io/sdcore-user-plane/badge.svg)](https://charmhub.io/sdcore-user-plane)
 
 This project contains charm bundles for the SD-Core. Bundles are available on Charmhub:
 - [sdcore](https://charmhub.io/sdcore)
