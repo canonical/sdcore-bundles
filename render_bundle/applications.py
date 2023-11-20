@@ -44,6 +44,25 @@ class AUSF(Application):
         )
 
 
+class NMS(Application):
+    """SD-Core NMS Application."""
+
+    def __init__(self, local: bool, channel: str):
+        resources = [
+            Resource(
+                name="nms-image",
+                value="ghcr.io/canonical/sdcore-nms:0.2.0",
+            )
+        ]
+        super().__init__(
+            name="nms",
+            charm="sdcore-nms_ubuntu-22.04-amd64.charm" if local else "sdcore-nms",
+            trust=True,
+            channel=None if local else channel,
+            resources=resources if local else None,
+        )
+
+
 class NRF(Application):
     """SD-Core NRF Application."""
 
@@ -231,4 +250,16 @@ class SelfSignedCertificates(Application):
             name="self-signed-certificates",
             charm="self-signed-certificates",
             channel="beta",
+        )
+
+
+class Traefik(Application):
+    """Traefik Application."""
+
+    def __init__(self):
+        super().__init__(
+            name="traefik-k8s",
+            charm="traefik-k8s",
+            channel="latest/stable",
+            trust=True,
         )

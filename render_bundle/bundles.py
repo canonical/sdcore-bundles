@@ -6,6 +6,7 @@
 from applications import (
     AMF,
     AUSF,
+    NMS,
     NRF,
     NSSF,
     PCF,
@@ -16,6 +17,7 @@ from applications import (
     GrafanaAgent,
     MongoDB,
     SelfSignedCertificates,
+    Traefik,
     Webui,
 )
 from lib.charm_bundle_generator import CharmBundle, Relation
@@ -27,6 +29,7 @@ class SDCore(CharmBundle):
     def __init__(self, local: bool, channel: str):
         amf = AMF(local=local, channel=channel)
         ausf = AUSF(local=local, channel=channel)
+        nms = NMS(local=local, channel=channel)
         nrf = NRF(local=local, channel=channel)
         nssf = NSSF(local=local, channel=channel)
         pcf = PCF(local=local, channel=channel)
@@ -38,12 +41,14 @@ class SDCore(CharmBundle):
         mongodb = MongoDB()
         grafana_agent = GrafanaAgent()
         self_signed_certificates = SelfSignedCertificates()
+        traefik = Traefik()
         super().__init__(
             description="The SD-Core bundle contains applications for running a standalone 5G Core network.",  # noqa: E501
             name="sdcore",
             applications=[
                 amf,
                 ausf,
+                nms,
                 nrf,
                 nssf,
                 pcf,
@@ -55,6 +60,7 @@ class SDCore(CharmBundle):
                 mongodb,
                 grafana_agent,
                 self_signed_certificates,
+                traefik,
             ],
             relations=[
                 Relation(
@@ -92,6 +98,24 @@ class SDCore(CharmBundle):
                     app_2_name=self_signed_certificates.name,
                     app_1_relation_name="certificates",
                     app_2_relation_name="certificates",
+                ),
+                Relation(
+                    app_1_name=nms.name,
+                    app_2_name=traefik.name,
+                    app_1_relation_name="ingress",
+                    app_2_relation_name="ingress",
+                ),
+                Relation(
+                    app_1_name=nms.name,
+                    app_2_name=upf.name,
+                    app_1_relation_name="fiveg_n4",
+                    app_2_relation_name="fiveg_n4",
+                ),
+                Relation(
+                    app_1_name=nms.name,
+                    app_2_name=webui.name,
+                    app_1_relation_name="sdcore-management",
+                    app_2_relation_name="sdcore-management",
                 ),
                 Relation(
                     app_1_name=nrf.name,
@@ -223,6 +247,7 @@ class SDCoreControlPlane(CharmBundle):
     def __init__(self, local: bool, channel: str):
         amf = AMF(local=local, channel=channel)
         ausf = AUSF(local=local, channel=channel)
+        nms = NMS(local=local, channel=channel)
         nrf = NRF(local=local, channel=channel)
         nssf = NSSF(local=local, channel=channel)
         pcf = PCF(local=local, channel=channel)
@@ -233,12 +258,14 @@ class SDCoreControlPlane(CharmBundle):
         mongodb = MongoDB()
         grafana_agent = GrafanaAgent()
         self_signed_certificates = SelfSignedCertificates()
+        traefik = Traefik()
         super().__init__(
             description="The SD-Core Control Plane bundle contains the control plane part of the 5G core network.",  # noqa: E501
             name="sdcore-control-plane",
             applications=[
                 amf,
                 ausf,
+                nms,
                 nrf,
                 nssf,
                 pcf,
@@ -249,6 +276,7 @@ class SDCoreControlPlane(CharmBundle):
                 mongodb,
                 grafana_agent,
                 self_signed_certificates,
+                traefik,
             ],
             relations=[
                 Relation(
@@ -286,6 +314,18 @@ class SDCoreControlPlane(CharmBundle):
                     app_2_name=self_signed_certificates.name,
                     app_1_relation_name="certificates",
                     app_2_relation_name="certificates",
+                ),
+                Relation(
+                    app_1_name=nms.name,
+                    app_2_name=traefik.name,
+                    app_1_relation_name="ingress",
+                    app_2_relation_name="ingress",
+                ),
+                Relation(
+                    app_1_name=nms.name,
+                    app_2_name=webui.name,
+                    app_1_relation_name="sdcore-management",
+                    app_2_relation_name="sdcore-management",
                 ),
                 Relation(
                     app_1_name=nrf.name,
