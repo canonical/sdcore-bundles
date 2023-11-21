@@ -262,4 +262,5 @@ class Traefik(Application):
             charm="traefik-k8s",
             channel="latest/stable",
             trust=True,
+            options={"routing_mode": "subdomain"},
         )

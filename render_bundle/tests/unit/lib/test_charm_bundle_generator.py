@@ -74,6 +74,7 @@ class TestRenderBundle(unittest.TestCase):
                 Resource(name="container-image-3", value="whatever-image-3:1111"),
                 Resource(name="container-image-4", value="whatever-image-4:2222"),
             ],
+            options={"option-1": "value-1", "option-2": "value-2"},
         )
         relation_1 = Relation(
             app_1_name=app_1.name,

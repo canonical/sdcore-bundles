@@ -18,6 +18,9 @@ applications:
     resources:
       container-image-3: whatever-image-3:1111
       container-image-4: whatever-image-4:2222
+    options:
+      option-1: value-1
+      option-2: value-2
 relations:
   - - app-1-name:banana
     - app-2-name:fruit

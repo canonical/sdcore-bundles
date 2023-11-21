@@ -37,6 +37,7 @@ class Application(BaseModel):
     scale: int = 1
     trust: bool = False
     channel: Optional[str] = None
+    options: Optional[dict[str, str]] = None
 
 
 class Relation(BaseModel):

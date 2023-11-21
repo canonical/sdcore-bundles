@@ -18,6 +18,12 @@ applications:
       {{ resource.name }}: {{ resource.value }}
       {%- endfor %}
     {%- endif %}
+    {%- if application.options %}
+    options:
+      {%- for option in application.options %}
+      {{option}}: {{ application.options[option] }}
+      {%- endfor %}
+    {%- endif %}
   {%- endfor %}
 {%- if relations %}
 relations:
