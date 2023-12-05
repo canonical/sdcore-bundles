@@ -38,7 +38,6 @@ class AUSF(Application):
         super().__init__(
             name="ausf",
             charm="sdcore-ausf_ubuntu-22.04-amd64.charm" if local else "sdcore-ausf",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -57,7 +56,6 @@ class NMS(Application):
         super().__init__(
             name="nms",
             charm="sdcore-nms_ubuntu-22.04-amd64.charm" if local else "sdcore-nms",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -76,7 +74,6 @@ class NRF(Application):
         super().__init__(
             name="nrf",
             charm="sdcore-nrf_ubuntu-22.04-amd64.charm" if local else "sdcore-nrf",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -95,7 +92,6 @@ class NSSF(Application):
         super().__init__(
             name="nssf",
             charm="sdcore-nssf_ubuntu-22.04-amd64.charm" if local else "sdcore-nssf",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -114,7 +110,6 @@ class PCF(Application):
         super().__init__(
             name="pcf",
             charm="sdcore-pcf_ubuntu-22.04-amd64.charm" if local else "sdcore-pcf",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -133,7 +128,6 @@ class SMF(Application):
         super().__init__(
             name="smf",
             charm="sdcore-smf_ubuntu-22.04-amd64.charm" if local else "sdcore-smf",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -152,7 +146,6 @@ class UDM(Application):
         super().__init__(
             name="udm",
             charm="sdcore-udm_ubuntu-22.04-amd64.charm" if local else "sdcore-udm",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -171,7 +164,6 @@ class UDR(Application):
         super().__init__(
             name="udr",
             charm="sdcore-udr_ubuntu-22.04-amd64.charm" if local else "sdcore-udr",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
@@ -213,7 +205,6 @@ class Webui(Application):
         super().__init__(
             name="webui",
             charm="sdcore-webui_ubuntu-22.04-amd64.charm" if local else "sdcore-webui",
-            trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
         )
