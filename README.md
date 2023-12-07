@@ -1,7 +1,7 @@
-# SD-Core bundles
-[![CharmHub Badge](https://charmhub.io/sdcore/badge.svg)](https://charmhub.io/sdcore)
-[![CharmHub Badge](https://charmhub.io/sdcore-control-plane/badge.svg)](https://charmhub.io/sdcore-control-plane)
-[![CharmHub Badge](https://charmhub.io/sdcore-user-plane/badge.svg)](https://charmhub.io/sdcore-user-plane)
+# SD-Core bundles for K8s
+[![CharmHub Badge](https://charmhub.io/sdcore-k8s/badge.svg)](https://charmhub.io/sdcore-k8s)
+[![CharmHub Badge](https://charmhub.io/sdcore-control-plane-k8s/badge.svg)](https://charmhub.io/sdcore-control-plane-k8s)
+[![CharmHub Badge](https://charmhub.io/sdcore-user-plane-k8s/badge.svg)](https://charmhub.io/sdcore-user-plane-k8s)
 
 This project contains charm bundles for SD-Core. 
 
