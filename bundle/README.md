@@ -1,1 +1,1 @@
-# SD-Core Bundle
+# SD-Core Bundle for K8s

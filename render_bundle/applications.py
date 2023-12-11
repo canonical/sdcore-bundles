@@ -7,7 +7,7 @@ from lib.charm_bundle_generator import Application, Resource
 
 
 class AMF(Application):
-    """SD-Core AMF Application."""
+    """SD-Core AMF Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -18,7 +18,7 @@ class AMF(Application):
         ]
         super().__init__(
             name="amf",
-            charm="sdcore-amf_ubuntu-22.04-amd64.charm" if local else "sdcore-amf",
+            charm="sdcore-amf-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-amf-k8s",
             trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
@@ -26,7 +26,7 @@ class AMF(Application):
 
 
 class AUSF(Application):
-    """SD-Core AUSF Application."""
+    """SD-Core AUSF Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -37,14 +37,14 @@ class AUSF(Application):
         ]
         super().__init__(
             name="ausf",
-            charm="sdcore-ausf_ubuntu-22.04-amd64.charm" if local else "sdcore-ausf",
+            charm="sdcore-ausf-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-ausf-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class NMS(Application):
-    """SD-Core NMS Application."""
+    """SD-Core NMS Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -55,14 +55,14 @@ class NMS(Application):
         ]
         super().__init__(
             name="nms",
-            charm="sdcore-nms_ubuntu-22.04-amd64.charm" if local else "sdcore-nms",
+            charm="sdcore-nms-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-nms-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class NRF(Application):
-    """SD-Core NRF Application."""
+    """SD-Core NRF Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -73,14 +73,14 @@ class NRF(Application):
         ]
         super().__init__(
             name="nrf",
-            charm="sdcore-nrf_ubuntu-22.04-amd64.charm" if local else "sdcore-nrf",
+            charm="sdcore-nrf-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-nrf-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class NSSF(Application):
-    """SD-Core NSSF Application."""
+    """SD-Core NSSF Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -91,14 +91,14 @@ class NSSF(Application):
         ]
         super().__init__(
             name="nssf",
-            charm="sdcore-nssf_ubuntu-22.04-amd64.charm" if local else "sdcore-nssf",
+            charm="sdcore-nssf-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-nssf-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class PCF(Application):
-    """SD-Core PCF Application."""
+    """SD-Core PCF Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -109,14 +109,14 @@ class PCF(Application):
         ]
         super().__init__(
             name="pcf",
-            charm="sdcore-pcf_ubuntu-22.04-amd64.charm" if local else "sdcore-pcf",
+            charm="sdcore-pcf-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-pcf-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class SMF(Application):
-    """SD-Core SMF Application."""
+    """SD-Core SMF Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -127,14 +127,14 @@ class SMF(Application):
         ]
         super().__init__(
             name="smf",
-            charm="sdcore-smf_ubuntu-22.04-amd64.charm" if local else "sdcore-smf",
+            charm="sdcore-smf-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-smf-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class UDM(Application):
-    """SD-Core UDM Application."""
+    """SD-Core UDM Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -145,14 +145,14 @@ class UDM(Application):
         ]
         super().__init__(
             name="udm",
-            charm="sdcore-udm_ubuntu-22.04-amd64.charm" if local else "sdcore-udm",
+            charm="sdcore-udm-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-udm-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class UDR(Application):
-    """SD-Core UDR Application."""
+    """SD-Core UDR Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -163,14 +163,14 @@ class UDR(Application):
         ]
         super().__init__(
             name="udr",
-            charm="sdcore-udr_ubuntu-22.04-amd64.charm" if local else "sdcore-udr",
+            charm="sdcore-udr-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-udr-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class UPF(Application):
-    """SD-Core UPF Application."""
+    """SD-Core UPF Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -185,7 +185,7 @@ class UPF(Application):
         ]
         super().__init__(
             name="upf",
-            charm="sdcore-upf_ubuntu-22.04-amd64.charm" if local else "sdcore-upf",
+            charm="sdcore-upf-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-upf-k8s",
             trust=True,
             channel=None if local else channel,
             resources=resources if local else None,
@@ -193,7 +193,7 @@ class UPF(Application):
 
 
 class Webui(Application):
-    """SD-Core Webui Application."""
+    """SD-Core Webui Application for K8s."""
 
     def __init__(self, local: bool, channel: str):
         resources = [
@@ -204,14 +204,14 @@ class Webui(Application):
         ]
         super().__init__(
             name="webui",
-            charm="sdcore-webui_ubuntu-22.04-amd64.charm" if local else "sdcore-webui",
+            charm="sdcore-webui-k8s_ubuntu-22.04-amd64.charm" if local else "sdcore-webui-k8s",
             channel=None if local else channel,
             resources=resources if local else None,
         )
 
 
 class MongoDB(Application):
-    """MongoDB Application."""
+    """MongoDB Application for K8s."""
 
     def __init__(self):
         super().__init__(
@@ -223,7 +223,7 @@ class MongoDB(Application):
 
 
 class GrafanaAgent(Application):
-    """Grafana Agent Application."""
+    """Grafana Agent Application for K8s."""
 
     def __init__(self):
         super().__init__(
@@ -245,7 +245,7 @@ class SelfSignedCertificates(Application):
 
 
 class Traefik(Application):
-    """Traefik Application."""
+    """Traefik Application for K8s."""
 
     def __init__(self):
         super().__init__(

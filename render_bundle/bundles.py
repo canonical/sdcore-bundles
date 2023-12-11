@@ -24,7 +24,7 @@ from lib.charm_bundle_generator import CharmBundle, Relation
 
 
 class SDCore(CharmBundle):
-    """SD-Core Bundle."""
+    """SD-Core Bundle for K8s."""
 
     def __init__(self, local: bool, channel: str):
         amf = AMF(local=local, channel=channel)
@@ -43,8 +43,8 @@ class SDCore(CharmBundle):
         self_signed_certificates = SelfSignedCertificates()
         traefik = Traefik()
         super().__init__(
-            description="The SD-Core bundle contains applications for running a standalone 5G Core network.",  # noqa: E501
-            name="sdcore",
+            description="The SD-Core bundle for K8s which contains applications for running a standalone 5G Core network.",  # noqa: E501
+            name="sdcore-k8s",
             applications=[
                 amf,
                 ausf,
@@ -242,7 +242,7 @@ class SDCore(CharmBundle):
 
 
 class SDCoreControlPlane(CharmBundle):
-    """SD-Core Control Plane Bundle."""
+    """SD-Core Control Plane Bundle for K8s."""
 
     def __init__(self, local: bool, channel: str):
         amf = AMF(local=local, channel=channel)
@@ -260,8 +260,8 @@ class SDCoreControlPlane(CharmBundle):
         self_signed_certificates = SelfSignedCertificates()
         traefik = Traefik()
         super().__init__(
-            description="The SD-Core Control Plane bundle contains the control plane part of the 5G core network.",  # noqa: E501
-            name="sdcore-control-plane",
+            description="The SD-Core Control Plane bundle for K8s which contains the control plane part of the 5G core network.",  # noqa: E501
+            name="sdcore-control-plane-k8s",
             applications=[
                 amf,
                 ausf,
@@ -446,14 +446,14 @@ class SDCoreControlPlane(CharmBundle):
 
 
 class SDCoreUserPlane(CharmBundle):
-    """SD-Core User Plane Bundle."""
+    """SD-Core User Plane Bundle for K8s."""
 
     def __init__(self, local: bool, channel: str):
         upf = UPF(local=local, channel=channel)
         grafana_agent = GrafanaAgent()
         super().__init__(
-            description="The SD-Core User Plane bundle contains the 5G User Plane Function (UPF).",
-            name="sdcore-user-plane",
+            description="The SD-Core User Plane bundle for K8s which contains the 5G User Plane Function (UPF).",  # noqa: E501
+            name="sdcore-user-plane-k8s",
             applications=[
                 upf,
                 grafana_agent,
