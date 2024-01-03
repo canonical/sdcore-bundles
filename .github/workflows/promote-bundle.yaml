@@ -18,7 +18,6 @@ on:
           - beta
           - candidate
           - stable
-        default: edge
         description: "Channel to promote to"
 
 jobs:
