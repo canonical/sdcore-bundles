@@ -9,6 +9,10 @@ on:
       bundle_variant:
         required: true
         type: string
+      channel:
+        required: false
+        type: string
+        default: edge
 
 jobs:
   publish-bundle:
@@ -30,3 +34,4 @@ jobs:
           credentials: "${{ secrets.CHARMCRAFT_AUTH }}"
           bundle-path: "bundle"
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+          channel: "${{ inputs.channel }}"

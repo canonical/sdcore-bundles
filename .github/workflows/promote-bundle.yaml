@@ -1,0 +1,33 @@
+name: promote-bundle
+
+on:
+  workflow_dispatch:
+    inputs:
+      bundle_variant:
+        required: true
+        type: choice
+        options:
+          - SDCORE
+          - SDCORE_CONTROL_PLANE
+          - SDCORE_USER_PLANE
+        description: "SD-Core bundle type"
+      channel:
+        required: false
+        type: choice
+        options:
+          - beta
+          - candidate
+          - stable
+        default: edge
+        description: "Channel to promote to"
+
+jobs:
+  promote-bundle:
+    name: Promoting ${{ inputs.bundle_variant }} bundle to ${{ inputs.channel }}
+    if: ${{ github.ref_name == 'main' }}
+    uses: ./.github/workflows/publish-bundle.yaml
+    with:
+      bundle_variant: ${{ inputs.bundle_variant }}
+      channel: ${{ inputs.channel }}
+    secrets:
+      CHARMCRAFT_AUTH: ${{ secrets.CHARMCRAFT_AUTH }}
