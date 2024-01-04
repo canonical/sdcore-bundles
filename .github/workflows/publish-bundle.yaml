@@ -27,7 +27,7 @@ jobs:
       - name: install requirements
         run: pip3 install -r render_bundle/requirements.txt
       - name: render bundle.yaml
-        run: python3 render_bundle/render_bundle.py --output_file bundle/bundle.yaml --bundle_variant=${{ inputs.bundle_variant }}
+        run: python3 render_bundle/render_bundle.py --output_file bundle/bundle.yaml --bundle_variant=${{ inputs.bundle_variant }} --channel=${{ inputs.channel }}
       - name: Upload bundle
         uses: canonical/charming-actions/upload-bundle@2.4.0
         with:
