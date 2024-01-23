@@ -48,9 +48,9 @@ def _parse_args() -> tuple[bool, str, str, str]:
         "--channel",
         type=str,
         help="Output file",
-        choices=["edge", "beta", "candidate", "stable"],
+        choices=["1.3/edge", "1.3/beta", "1.3/candidate", "1.3/stable"],
         required=False,
-        default="edge",
+        default="1.3/edge",
     )
     parser.add_argument(
         "--output_file",
