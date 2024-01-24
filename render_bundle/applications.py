@@ -217,7 +217,7 @@ class MongoDB(Application):
         super().__init__(
             name="mongodb-k8s",
             charm="mongodb-k8s",
-            channel="6/beta",
+            channel="5/edge",
             trust=True,
         )
 
