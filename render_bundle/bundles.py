@@ -66,8 +66,8 @@ class SDCore(CharmBundle):
                 Relation(
                     app_1_name=amf.name,
                     app_2_name=nrf.name,
-                    app_1_relation_name="fiveg-nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_1_relation_name="fiveg_nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=amf.name,
@@ -91,7 +91,7 @@ class SDCore(CharmBundle):
                     app_1_name=ausf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=ausf.name,
@@ -133,7 +133,7 @@ class SDCore(CharmBundle):
                     app_1_name=nssf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=nssf.name,
@@ -145,7 +145,7 @@ class SDCore(CharmBundle):
                     app_1_name=pcf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=pcf.name,
@@ -163,7 +163,7 @@ class SDCore(CharmBundle):
                     app_1_name=smf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=smf.name,
@@ -187,7 +187,7 @@ class SDCore(CharmBundle):
                     app_1_name=udm.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=udm.name,
@@ -199,7 +199,7 @@ class SDCore(CharmBundle):
                     app_1_name=udr.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=udr.name,
@@ -282,8 +282,8 @@ class SDCoreControlPlane(CharmBundle):
                 Relation(
                     app_1_name=amf.name,
                     app_2_name=nrf.name,
-                    app_1_relation_name="fiveg-nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_1_relation_name="fiveg_nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=amf.name,
@@ -307,7 +307,7 @@ class SDCoreControlPlane(CharmBundle):
                     app_1_name=ausf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=ausf.name,
@@ -343,7 +343,7 @@ class SDCoreControlPlane(CharmBundle):
                     app_1_name=nssf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=nssf.name,
@@ -355,7 +355,7 @@ class SDCoreControlPlane(CharmBundle):
                     app_1_name=pcf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=pcf.name,
@@ -373,7 +373,7 @@ class SDCoreControlPlane(CharmBundle):
                     app_1_name=smf.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=smf.name,
@@ -397,7 +397,7 @@ class SDCoreControlPlane(CharmBundle):
                     app_1_name=udm.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=udm.name,
@@ -409,7 +409,7 @@ class SDCoreControlPlane(CharmBundle):
                     app_1_name=udr.name,
                     app_2_name=nrf.name,
                     app_1_relation_name="fiveg_nrf",
-                    app_2_relation_name="fiveg-nrf",
+                    app_2_relation_name="fiveg_nrf",
                 ),
                 Relation(
                     app_1_name=udr.name,
