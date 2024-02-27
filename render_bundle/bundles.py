@@ -204,7 +204,13 @@ class SDCore(CharmBundle):
                 Relation(
                     app_1_name=udr.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="database",
+                    app_1_relation_name="common_database",
+                    app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=udr.name,
+                    app_2_name=mongodb.name,
+                    app_1_relation_name="auth_database",
                     app_2_relation_name="database",
                 ),
                 Relation(
@@ -216,7 +222,13 @@ class SDCore(CharmBundle):
                 Relation(
                     app_1_name=webui.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="database",
+                    app_1_relation_name="common_database",
+                    app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=webui.name,
+                    app_2_name=mongodb.name,
+                    app_1_relation_name="auth_database",
                     app_2_relation_name="database",
                 ),
                 Relation(
@@ -414,7 +426,13 @@ class SDCoreControlPlane(CharmBundle):
                 Relation(
                     app_1_name=udr.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="database",
+                    app_1_relation_name="common_database",
+                    app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=udr.name,
+                    app_2_name=mongodb.name,
+                    app_1_relation_name="auth_database",
                     app_2_relation_name="database",
                 ),
                 Relation(
@@ -426,7 +444,13 @@ class SDCoreControlPlane(CharmBundle):
                 Relation(
                     app_1_name=webui.name,
                     app_2_name=mongodb.name,
-                    app_1_relation_name="database",
+                    app_1_relation_name="common_database",
+                    app_2_relation_name="database",
+                ),
+                Relation(
+                    app_1_name=webui.name,
+                    app_2_name=mongodb.name,
+                    app_1_relation_name="auth_database",
                     app_2_relation_name="database",
                 ),
                 Relation(
