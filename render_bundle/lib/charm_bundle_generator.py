@@ -11,7 +11,7 @@ from pydantic import BaseModel
 
 
 def _write_to_file(file: str, content: str):
-    """Writes content to a file.
+    """Write content to a file.
 
     Args:
         file: File name
@@ -67,7 +67,7 @@ class CharmBundle:
         self.relations = relations
 
     def render(self) -> str:
-        """Renders charm bundle using jinja2 templating.
+        """Render charm bundle using jinja2 templating.
 
         Returns:
             str: Rendered bundle
@@ -84,7 +84,7 @@ class CharmBundle:
         )
 
     def render_to_file(self, output_file: str):
-        """Renders charm bundle using jinja2 templating and outputs to a file.
+        """Render charm bundle using jinja2 templating and outputs to a file.
 
         Args:
             output_file: Output file.

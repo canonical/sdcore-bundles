@@ -21,7 +21,7 @@ class SDCoreBundleVariant(enum.Enum):
 
 
 def _parse_args() -> tuple[bool, str, str, str]:
-    """Parses user provided arguments.
+    """Parse user provided arguments.
 
     Returns:
         local (bool): Whether to generate a bundle for local charms (instead of charmhub)
@@ -74,7 +74,7 @@ def render_bundle(
     output_file: str,
     channel: Optional[str] = None,
 ):
-    """Generates a SD-Core bundle variant.
+    """Generate a SD-Core bundle variant.
 
     Args:
         local: Whether to use local charms (instead of charmhub).
@@ -88,7 +88,7 @@ def render_bundle(
 
 
 def main():
-    """Generates one of the SD-Core charm bundles based on user provided bundle type."""
+    """Generate one of the SD-Core charm bundles based on user provided bundle type."""
     local, bundle_variant, channel, output_file = _parse_args()
     render_bundle(
         local=local,
