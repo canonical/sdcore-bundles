@@ -29,7 +29,7 @@ jobs:
       - name: render bundle.yaml
         run: python3 render_bundle/render_bundle.py --output_file bundle/bundle.yaml --bundle_variant=${{ inputs.bundle_variant }} --channel=${{ inputs.channel }}
       - name: Upload bundle
-        uses: canonical/charming-actions/upload-bundle@2.6.1
+        uses: canonical/charming-actions/upload-bundle@2.6.2
         with:
           credentials: "${{ secrets.CHARMCRAFT_AUTH }}"
           bundle-path: "bundle"
